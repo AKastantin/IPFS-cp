@@ -1,4 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts'
+import { AuthProvider } from './contexts/AuthContext'
+import ProtectedRoute from './components/ProtectedRoute'
+import Header from './components/Header'
 
 // Sample data for charts
 const barData = [
@@ -28,22 +31,11 @@ const pieData = [
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
 
-function App() {
+function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center">
-              <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-gray-500">Welcome to your dashboard</span>
-            </div>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
@@ -55,12 +47,12 @@ function App() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <div className="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
-                      <span className="text-white font-bold">📊</span>
+                      <span className="text-white font-bold">🛡️</span>
                     </div>
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Total Users</dt>
+                      <dt className="text-sm font-medium text-gray-500 truncate">Total CIDs</dt>
                       <dd className="text-lg font-medium text-gray-900">1,234</dd>
                     </dl>
                   </div>
@@ -73,13 +65,13 @@ function App() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <div className="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
-                      <span className="text-white font-bold">💰</span>
+                      <span className="text-white font-bold">🚨</span>
                     </div>
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Revenue</dt>
-                      <dd className="text-lg font-medium text-gray-900">$12,345</dd>
+                      <dt className="text-sm font-medium text-gray-500 truncate">Active Campaigns</dt>
+                      <dd className="text-lg font-medium text-gray-900">23</dd>
                     </dl>
                   </div>
                 </div>
@@ -91,13 +83,13 @@ function App() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <div className="w-8 h-8 bg-yellow-500 rounded-md flex items-center justify-center">
-                      <span className="text-white font-bold">📈</span>
+                      <span className="text-white font-bold">✅</span>
                     </div>
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Growth</dt>
-                      <dd className="text-lg font-medium text-gray-900">+12.5%</dd>
+                      <dt className="text-sm font-medium text-gray-500 truncate">Confirmed Phishing</dt>
+                      <dd className="text-lg font-medium text-gray-900">892</dd>
                     </dl>
                   </div>
                 </div>
@@ -109,13 +101,13 @@ function App() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <div className="w-8 h-8 bg-purple-500 rounded-md flex items-center justify-center">
-                      <span className="text-white font-bold">🎯</span>
+                      <span className="text-white font-bold">🔍</span>
                     </div>
                   </div>
                   <div className="ml-5 w-0 flex-1">
                     <dl>
-                      <dt className="text-sm font-medium text-gray-500 truncate">Conversion</dt>
-                      <dd className="text-lg font-medium text-gray-900">3.2%</dd>
+                      <dt className="text-sm font-medium text-gray-500 truncate">Detection Rate</dt>
+                      <dd className="text-lg font-medium text-gray-900">94.2%</dd>
                     </dl>
                   </div>
                 </div>
@@ -199,6 +191,16 @@ function App() {
       </main>
     </div>
   )
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    </AuthProvider>
+  );
 }
 
 export default App
