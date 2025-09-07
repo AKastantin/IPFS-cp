@@ -20,17 +20,13 @@ The IPFS Control Panel is a web-based security analyst interface for monitoring 
 ### 2.1 Phishing CID List View
 - **Display Requirements**:
   - Paginated list of confirmed phishing CIDs
-  - Sortable columns: CID, Detection Date, Campaign, Threat Type, Status
-  - Search functionality by CID, campaign name, or threat type
-  - Filter options: Date range, threat type, campaign
+  - Sortable columns: CID, Detection Date, Campaign, Source
+  - Search functionality by: CID, Detection Date, Campaign, Source
 - **Data Fields**:
   - CID (IPFS Content Identifier)
   - Detection timestamp
   - Campaign association
-  - Threat classification (CTI, Obfuscated, SimDetected)
-  - Confirmation status
-  - Gateway source
-  - SimHash similarity score
+  - Source (bitswap vs PDNS vs both)
 
 ### 2.2 CID Detail View
 - **Detailed Information Display**:

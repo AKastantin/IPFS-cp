@@ -1,0 +1,31 @@
+# IPFS Control Panel - Project Context
+
+## Tech Stack
+- React 19.1.1 + Vite + Tailwind CSS
+- React Router DOM for routing
+- Recharts for data visualization
+- Custom auth with localStorage
+
+## Current Architecture
+- Flexbox layout with collapsible sidebar
+- 5 main pages: Dashboard, Phishing CIDs, Campaigns, Gateways, System Health
+- Protected routes with authentication
+- Responsive design (mobile/desktop)
+
+## Implemented Features
+- ✅ Section 2.1 (Phishing CID List View) - Complete
+- ✅ Modern sidebar navigation
+- ✅ Authentication system
+- ✅ System Health monitoring
+- ✅ Responsive layout
+
+## Key Components
+- Navigation.jsx: Collapsible sidebar
+- App.jsx: Flexbox layout + routing
+- AuthContext: Session management
+- 5 page components with full functionality
+
+## Next Priorities
+- Backend API integration
+- Real data implementation
+- Section 2.2 (CID Detail View)
